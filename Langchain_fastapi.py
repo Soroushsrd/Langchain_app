@@ -2,7 +2,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
-from langchain import HuggingFaceHub
 from langchain_community.utilities import DuckDuckGoSearchAPIWrapper
 from Bio import Entrez
 from datetime import datetime

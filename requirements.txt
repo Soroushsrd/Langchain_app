@@ -13,7 +13,6 @@ langchain_community==0.0.31
 langserve==0.0.51
 matplotlib==3.8.3
 neurokit2==0.2.7
-newspaper==0.1.0.7
 nltk==3.8.1
 numpy==1.26.4
 ordereddict==1.1

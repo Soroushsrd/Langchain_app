@@ -26,5 +26,3 @@ seaborn==0.13.2
 selenium==4.19.0
 setuptools==68.2.2
 streamlit==1.32.2
-torch==2.2.1+cu121
-transformers==4.39.0.dev0

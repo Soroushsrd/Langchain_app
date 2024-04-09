@@ -7,7 +7,7 @@ docx==0.2.4
 edge_tts==6.1.10
 fake_useragent==1.5.1
 fastapi==0.110.1
-googletrans==3.0.0
+googletrans
 langchain==0.1.14
 langchain_community==0.0.31
 langserve==0.0.51

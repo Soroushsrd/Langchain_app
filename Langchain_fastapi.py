@@ -12,7 +12,7 @@ import re
 import streamlit as st
 
 # question= input("Whats your question?")
-ChatOpenAI.api_key = st.secrets["OPENAI_API_KEY"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 
 # hub_llm=HuggingFaceHub(repo_id='google/gemma-7b',model_kwargs={'temperature':1})

@@ -11,17 +11,9 @@ import os
 import re
 import streamlit as st
 
-# question= input("Whats your question?")
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 
-# hub_llm=HuggingFaceHub(repo_id='google/gemma-7b',model_kwargs={'temperature':1})
-
-# template1=""" try to find the most important keywords and extract them from the following question. Then return a python lists of the keywords.
-#
-# Question:{question}
-#
-# """
 
 Template2 = """
 
@@ -37,7 +29,7 @@ prompt = ChatPromptTemplate.from_template(template=Template2)
 
 def get_entrez(keywords: list):
     # Set your email for PubMed requests (required)
-    Entrez.email = "bahraam2002@gmail.com"
+    Entrez.email = "your_email"
 
     # Keywords list to search in PubMed
     keywords_list = keywords
@@ -65,7 +57,6 @@ def get_entrez(keywords: list):
     output = ''.join(all_summaries)
     return output
 
-# ChatOpenAI(model='gpt-4-1106-preview', temperature=1)
 
 scrape_and_summarize = RunnablePassthrough.assign(
     text=lambda x: get_entrez(x['keywords'])[:30000]
@@ -116,20 +107,14 @@ def parse_keywords(output):
     return list(unique_keywords)
 
 
-# search_question_chain = SEARCH_PROMPT | ChatOpenAI(temperature=0) | StrOutputParser() | json.loads
 key_search = KEY_PROMPT | ChatOpenAI(model='gpt-4-1106-preview', temperature=1) | {
     'question': StrOutputParser()} | RunnablePassthrough.assign(
     text=lambda x: get_entrez(parse_keywords(x))[:20000]) | prompt |ChatOpenAI(model='gpt-4-1106-preview', temperature=1) | StrOutputParser()
-# output_chain=key_search | (lambda x: [{"keywords": key} for key in x]) |scrape_and_summarize.map()
 
-# key_search.invoke(
-#     {
-#         "question":question
-#     }
-# )
+
 
 WRITER_SYSTEM_PROMPT = "You are an AI critical thinker research assistant. Your sole purpose is to write well written, critically acclaimed, objective and structured reports on given text."  # noqa: E501
-# Report prompts from https://github.com/assafelovic/gpt-researcher/blob/master/gpt_researcher/master/prompts.py
+
 RESEARCH_REPORT_TEMPLATE = """Information:
 --------
 {research_summary}
@@ -174,19 +159,4 @@ if analyze_button:
     st.write(answer)
 
 
-# app = FastAPI(
-#     title="LangChain Server",
-#     version="1.0",
-#     description="A simple api server using Langchain's Runnable interfaces",
-# )
-#
-# add_routes(
-#     app,
-#     chain,
-#     path="/Langchain_fastapi",
-# )
-#
-# if __name__ == "__main__":
-#     import uvicorn
-#
-#     uvicorn.run(app, host="localhost", port=8000)
+

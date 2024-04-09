@@ -171,7 +171,6 @@ if analyze_button:
             "question":system_message
         }
     )
-if answer:
     st.write(answer)
 
 

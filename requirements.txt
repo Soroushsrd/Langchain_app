@@ -16,6 +16,7 @@ neurokit2==0.2.7
 nltk==3.8.1
 numpy==1.26.4
 ordereddict==1.1
+openai
 pandas==2.2.1
 polars==0.20.18
 PyPDF2==3.0.1

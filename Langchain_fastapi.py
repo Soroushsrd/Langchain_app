@@ -109,7 +109,7 @@ def parse_keywords(output):
 
 key_search = KEY_PROMPT | ChatOpenAI(model='gpt-4-1106-preview', temperature=1) | {
     'question': StrOutputParser()} | RunnablePassthrough.assign(
-    text=lambda x: get_entrez(parse_keywords(x))[:20000]) | prompt |ChatOpenAI(model='gpt-4-1106-preview', temperature=1) | StrOutputParser()
+    text=lambda x: get_entrez(parse_keywords(x))[:40000]) | prompt |ChatOpenAI(model='gpt-4-1106-preview', temperature=1) | StrOutputParser()
 
 
 

@@ -26,6 +26,8 @@ streamlit run app.py
 ## Usage
 Once the application is running, users can enter their medical questions into the provided text box and click the "Answer" button to receive a response. The app will use the GPT-4 Turbo model to generate answers based on information retrieved from PubMed.
 
+## Example
+![Question and Answer][Screenshot 2024-04-10 100556.png]
 
 ## Contributing
 
